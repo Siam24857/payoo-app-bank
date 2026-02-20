@@ -12,6 +12,7 @@
     if(contactnumberr =="01841216867" && pin == "1234"){
         alert("Login Sucsese")
         window.location.assign("/home.html")
+          
     }
     else{
         alert("Login Faild")

@@ -27,9 +27,14 @@
     const addmoney = document.getElementById("add-money")
     const cashout = document.getElementById("cashout")
     const history = document.getElementById("history")
+    const sendmoney = document.getElementById("sendMoney")
+    const paybill = document.getElementById("pay-bill")
+    
      addmoney.classList.add("hidden");
      cashout.classList.add("hidden");
-     history.classList.add("history");
+     history.classList.add("hidden");
+     sendmoney.classList.add("hidden");
+     paybill.classList.add("hidden")
 
     const seleted = document.getElementById(id)
     seleted.classList.remove("hidden")

@@ -27,7 +27,7 @@ document.getElementById("add-money-btn").addEventListener("click", function(){
         const newhistory = document.createElement("div")
 
         newhistory.innerHTML = `
-        <div class="transaction-card p-5   bg-blue-300 rounded-full">
+        <div class="transaction-card p-5  bg-blue-300 rounded-full mb-2">
                  Add money sucsesfully from ${bankAmount}, acc-no ${accno} at ${new Date()}
          </div>
         `;

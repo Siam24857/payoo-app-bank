@@ -21,6 +21,61 @@
     *{
         font-family: "Open Sans", sans-serif;
     }
+            html {
+  height:100%;
+}
+
+body {
+  margin:0;
+  margin: auto;
+}
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, rgb(14, 129, 129) 50%, #09f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+.content {
+  background-color:rgba(255,255,255,.8);
+  border-radius:.25em;
+  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  box-sizing:border-box;
+  left:50%;
+  padding:10vmin;
+  position:fixed;
+  text-align:center;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
+
+h1 {
+  font-family:monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
 </style>
 </head>
 <body class="min-h-screen max-w-md bg-base-200 mx-auto">
@@ -68,7 +123,7 @@
                     <p>Cashout</p>
                 </button>
                 
-                <button class="btn flex-col h-full py-4 btn-primary btn-soft">
+                <button onclick="showly('sendMoney')" class="btn flex-col h-full py-4 btn-primary btn-soft">
                     <img src="assets/opt-3.png" alt="">
                     <p>Send Money</p>
                 </button>
@@ -78,7 +133,7 @@
                     <p>Get Bonus</p>
                 </button>
                 
-                <button class="btn flex-col h-full py-4 btn-primary btn-soft">
+                <button onclick="showly('pay-bill')" class="btn flex-col h-full py-4 btn-primary btn-soft">
                     <img src="assets/opt-5.png" alt="">
                     <p>Pay Bill</p>
                 </button>
@@ -163,6 +218,34 @@
       </div>
          </section>
 
+         <section id="sendMoney" class="w-11/12 mx-auto py-5 mt-5  hidden">
+               <h2 class="text-xl font-bold  mb-2">Send Money</h2>
+               <div class="form ">
+        <div class="card bg-base-100 w-full   shrink-0 shadow mx-auto rounded-2xl">
+      <div class="card-body">
+        <fieldset class="fieldset">
+          <label class="label  text-neutral font-bold">Agent Number</label>
+          <input id="send-number" maxlength="11" minlength="11"  type="text" 
+          class="input rounded-full bg-base-200 w-full"
+           placeholder="Enter Agent 11 digit number" />
+          <br>
+          <label class="label  text-neutral font-bold">Amount</label>
+          <input id="send-Amoubnt" maxlength="11" minlength="11"  type="number" 
+          class="input rounded-full bg-base-200 w-full"
+           placeholder="Enter Amount for withdraw" />
+          <br>
+          <label class="label  text-neutral font-bold">4 Digit pin</label>
+          <input id="send-pin" maxlength="4" minlength="4" type="password" 
+          class="input rounded-full bg-base-200 w-full" 
+          placeholder="Enter 4 Digit pin" />
+           
+          <button id="send-btn" class="btn btn-primary rounded-full mt-4">Withdraw Money</button>
+        </fieldset>
+      </div>
+    </div>
+      </div>
+         </section>
+
          <section id="history" class="w-11/12 mx-auto py-5 hidden">
             <h2 class="text-xl font-bold mb-5">Transaction</h2>
               <div class="" id="history-container">
@@ -172,11 +255,73 @@
               </div>
          </section>
 
-         
 
+    <section id="pay-bill" class="w-11/12 mx-auto py-5 mt-5 hidden">
+                <h2 class="text-xl font-bold  mb-2">Pay Bill</h2>
+               <div class="form ">
+        <div class="card bg-base-100 w-full   shrink-0 shadow mx-auto rounded-2xl">
+      <div class="card-body">
+        <fieldset class="fieldset">
+            <label class="label  text-neutral font-bold">Select Bank</label>
+
+            <select id="addpay" class="select w-full rounded-full bg-base-200">
+  <option disabled selected>Select a pay</option>
+  <option value="DBBL">DBBL</option>
+  <option value="City Bank">City Bank</option>
+  <option value="IBBL">IBBL</option>
+</select>
+
+
+          <label class="label  text-neutral font-bold">Biller Account Number</label>
+          <input id="biller-number" maxlength="11" minlength="11"  type="text" 
+          class="input rounded-full bg-base-200 w-full"
+           placeholder="Enter Agent 11 digit number" />
+          <br>
+          <label class="label  text-neutral font-bold">Amount to pay</label>
+          <input id="pay-money-Amoubnt" maxlength="11" minlength="11"  type="number" 
+          class="input rounded-full bg-base-200 w-full"
+           placeholder="Enter Amount to Add" />
+          <br>
+          <label class="label  text-neutral font-bold">Pin Number</label>
+          <input id="pin-number" maxlength="4" minlength="4" type="password" 
+          class="input rounded-full bg-base-200 w-full" 
+          placeholder="Enter 4 Digit pin" />
+           
+          <button id="pay-money-btn" class="btn btn-primary rounded-full mt-4">Pay Now</button>
+        </fieldset>
+      </div>
+    </div>
+      </div>
+    </section>
+
+
+
+
+
+
+         
+<div class="rain"></div>
+  <div class="left"></div>
+  <div class="left center"></div>
+  <div class="right center"></div>
+  <div class="right"></div>
+  <div class="drop"></div>
+  
+
+         
+  
      <script src="script/machice.js"></script>
      <script src="script/addmoney.js"></script>
     <script src="script/cashout.js"></script>
-  
-</body>
-</html>
+    <script src="script/paybill.js"></script>
+    <script src="script/sendmoney.js"></script>
+ 
+
+    </body>
+          <div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+ 
+ 
+      
+    </html>

@@ -1,12 +1,12 @@
-document.getElementById("withbtn").addEventListener('click', function() {
-    const cashuotnumber = getvalurfrom("cashout-number")
+document.getElementById("send-btn").addEventListener('click', function() {
+    const cashuotnumber = getvalurfrom("send-number")
     if(cashuotnumber.length != 11){
         alert("Invalid number")
         return
 
     }
     
-    const cahoutamount = getvalurfrom("cashout-Amoubnt")
+    const cahoutamount = getvalurfrom("send-Amoubnt")
      const currentblance = getblance()
      
     const newblace = currentblance - Number(cahoutamount)
@@ -15,9 +15,9 @@ document.getElementById("withbtn").addEventListener('click', function() {
         return;
     } 
 
-    const pin = getvalurfrom("cashout-pin");
+    const pin = getvalurfrom("send-pin");
     if(pin === "1234"){
-        alert("cashout Succsesfully");
+        alert("Send Money Succsesfully");
 
          setblance(newblace)
          
@@ -26,8 +26,8 @@ document.getElementById("withbtn").addEventListener('click', function() {
         const newhistory = document.createElement("div")
 
         newhistory.innerHTML = `
-        <div class="transaction-card p-5 bg-blue-300 rounded-full mb-2">
-                 Cashout ${cahoutamount} Taka Sucses to ${cashuotnumber},  at ${new Date()}
+        <div class="transaction-card p-5 bg-blue-300 rounded-full mb-5">
+                 Send Money ${cahoutamount} Taka Sucses to ${cashuotnumber},  at ${new Date()}
          </div>
         `;
 
@@ -45,7 +45,3 @@ document.getElementById("withbtn").addEventListener('click', function() {
 
 
 
-
-
-
- 
